@@ -1,20 +1,26 @@
-/* This component is for the cart icon in the app */
+// General
 import React from 'react';
-import './cart-icon.styles.scss';
-import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
+
+// Redux
 import { connect } from 'react-redux';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
+
+// Reselect
 import { createStructuredSelector } from 'reselect';
 
+// Styles
+import { CartContainer, ShoppingIconContainer, ItemCountContainer } from './cart-icon.styles';
 
+/* This component is for the cart icon in the app */
 const CartIcon = ({ toggleCartHidden, itemCount}) => (
-    <div className="cart-icon" onClick={toggleCartHidden}>
-        <ShoppingIcon className="shopping-icon"/>
-        <span className="item-count">{itemCount}</span>
-    </div>
+	<CartContainer onClick={toggleCartHidden}>
+        <ShoppingIconContainer />
+        <ItemCountContainer>{itemCount}</ItemCountContainer>
+	</CartContainer>
 );
 
+// Redux Functions
 const mapDispatchToProps = dispatch => ({
     toggleCartHidden: () => dispatch(toggleCartHidden())
 });

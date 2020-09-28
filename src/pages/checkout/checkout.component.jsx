@@ -1,44 +1,34 @@
-/* This is the checkout page i our app */
+// General
 import React from 'react';
-import './checkout.styles.scss';
+
+// Redux
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
+
+// Reselect
+import { createStructuredSelector } from 'reselect';
+
+// Our Components
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
 
+// Styles
+import { CheckoutContainer, CheckoutHeaderContainer, CheckoutBlockContainer, TotalContainer, TextWarning } from './checkout.styles';
+
+
+/* This is the checkout page in our app */
 const CheckoutPage = ({cartItems, total}) => (
-    <div className="checkout-page">
-        <div className="checkout-header">
-            <div className="checkout-block">
-                <span>Product</span>
-            </div>
-
-            <div className="checkout-block">
-                <span>Description</span>
-            </div>
-
-            <div className="checkout-block">
-                <span>Quantity</span>
-            </div>
-
-            <div className="checkout-block">
-                <span>Price</span>
-            </div>
-
-            <div className="checkout-block">
-                <span>Remove</span>
-            </div>
-        </div>
-        {
-            cartItems.map(
-                cartItem => (<CheckoutItem key={cartItem.id} cartItem={cartItem}/>))
-        }
-
-        <div className="total">
-            <span>TOTAL: ${total}</span>
-        </div>
-        <div className="text-warning">
+    <CheckoutContainer>
+        <CheckoutHeaderContainer>
+            <CheckoutBlockContainer><span>Product</span></CheckoutBlockContainer>
+            <CheckoutBlockContainer><span>Description</span></CheckoutBlockContainer>
+            <CheckoutBlockContainer><span>Quantity</span></CheckoutBlockContainer>
+            <CheckoutBlockContainer><span>Price</span></CheckoutBlockContainer><CheckoutBlockContainer><span>Remove</span></CheckoutBlockContainer>
+        </CheckoutHeaderContainer>
+            {cartItems.map(
+                cartItem => (<CheckoutItem key={cartItem.id} cartItem={cartItem}/>))}
+        <TotalContainer><span>TOTAL: ${total}</span></TotalContainer>
+        <TextWarning>
             *Please enter the following details of credit card:
             <br />
             **Number: 4242 4242 4242 4242
@@ -46,14 +36,15 @@ const CheckoutPage = ({cartItems, total}) => (
             **Date: can be any future date
             <br />
             **CVV: can be any 3 digits
-        </div>
+        </TextWarning>
         <StripeCheckoutButton price={total} />
-    </div>
+    </CheckoutContainer>
 );
 
+// Redux Functions
 const mapStateToProps = createStructuredSelector({
     cartItems: selectCartItems,
     total: selectCartTotal
-})
+});
 
 export default connect(mapStateToProps)(CheckoutPage);

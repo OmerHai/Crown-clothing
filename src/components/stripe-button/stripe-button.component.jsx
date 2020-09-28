@@ -1,7 +1,10 @@
-/* This component for the stripe button */
+// General
 import React from 'react';
+
+// Stripe
 import StripeCheckout from 'react-stripe-checkout';
 
+/* This component for the stripe button */
 const StripeCheckoutButton = ({ price }) => {
     const priceForStripe = price * 100;//Stripe wants the price in cent
     const publishableKey = 'pk_test_JfbboXFdaunW2bLCaEUJassE00TkW5CkAU';
@@ -9,7 +12,8 @@ const StripeCheckoutButton = ({ price }) => {
     const onToken = token => {
         console.log(token);
         alert("Payment Sucessful")
-    }
+    };
+
     return (
         <StripeCheckout 
             label="Pay Now"
@@ -24,5 +28,6 @@ const StripeCheckoutButton = ({ price }) => {
             stripeKey={publishableKey}
         />
     );
-}
+};
+
 export default StripeCheckoutButton

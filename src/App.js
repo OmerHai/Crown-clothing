@@ -1,16 +1,32 @@
+// General
 import React from 'react';
+
+// Styles
 import './App.css';
-import { Switch ,Route, Redirect } from 'react-router-dom';
+
+// Router
+import { Switch, Route, Redirect } from 'react-router-dom';
+
+// Redux
+import { setCurrentUser } from './redux/user/user.actions';
+import { connect } from 'react-redux';
+import { selectCurrentUser } from './redux/user/user.selectors';
+
+// Reselect
+import { createStructuredSelector } from 'reselect';
+
+// Firebase
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+
+// Our components
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { setCurrentUser } from './redux/user/user.actions';
-import { connect } from 'react-redux';
-import { selectCurrentUser } from './redux/user/user.selectors';
-import { createStructuredSelector } from 'reselect';
 import CheckoutPage from './pages/checkout/checkout.component';
+
+
+
 
 class App extends React.Component {
   unSubscribeFromAuth = null; /* This is function for closing the communication between our app and firebase */
@@ -53,6 +69,7 @@ class App extends React.Component {
   }
 }
 
+// Redux Functions
 const mapStateToProp = createStructuredSelector({
   currentUser: selectCurrentUser
 });

@@ -12,9 +12,8 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
             : cartItem
             );
     }
-
     return [ ...cartItems, { ...cartItemToAdd, quantity:1 }]; // If no it is return the precious array with the new item when the quntity is one
-}
+};
 
 /* This function remove item from cart */
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
@@ -30,4 +29,4 @@ export const removeItemFromCart = (cartItems, cartItemToRemove) => {
         ? { ...cartItem, quantity: cartItem.quantity - 1}
         : cartItem
     );
-}
+};

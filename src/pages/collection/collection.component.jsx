@@ -1,26 +1,32 @@
-/* This is the page of each category that we have in our shop */
+// General
 import React from 'react';
-import './collection.styles.scss';
+
+// Redux
 import { connect } from 'react-redux';
 import { selectCollection } from '../../redux/shop/shop.selectors';
+
+// Our Components
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
+// Styles
+import { CollectionContainer, CollectionTitle, Collectionitems } from './collection.styles';
+
+/* This is the page of each category that we have in our shop */
 const CollectionPage = ({ collection }) => {
     const { title, items } = collection;
     return(
-    <div className="collection-page">
-        <h2 className='title'>{title}</h2>
-        <div className="items">
-            {
-                items.map(item => (
+    <CollectionContainer>
+        <CollectionTitle className='title'>{title}</CollectionTitle>
+        <Collectionitems className="items">
+            {items.map(item => (
                     <CollectionItem key={item.id} item={item}/>
-                ))
-            }
-        </div>
-    </div>
+                ))}
+        </Collectionitems>
+    </CollectionContainer>
     )
 };
 
+// Redux Functions
 const mapStateToProps = (state, ownProps) => ({
     collection: selectCollection(ownProps.match.params.collectionId)(state)
 });

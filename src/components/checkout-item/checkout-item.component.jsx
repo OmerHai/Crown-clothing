@@ -1,29 +1,38 @@
-/* This is a component for all the items that will display in the checkout page */
+// General
 import React from 'react';
-import './checkout-item.styles.scss';
+
+// Redux
 import { connect } from 'react-redux';
 import { clearItemFromCart, addItem, removeItem } from '../../redux/cart/cart.actions';
 
+// Styles
+import { CheckoutItemContainer, ImageContainer, CheckoutImage, TextContainer, QunatityContainer, RemoveButtonContainer } from './checkout-item.styles';
+
+/* This is a component for all the items that will display in the checkout page */
 const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
     const { imageUrl, name, quantity, price } = cartItem;
     return (
-    <div className="checkout-item">
-        <div className="image-container">
-            <img src={imageUrl} alt="item"/>
-        </div>
-        <span className="name">{name}</span>
-        <span className="quantity">
-            <div className="arrow" onClick={()=> removeItem(cartItem)}>&#10094;</div>
-            <span className="value">{quantity}</span>
-             <div className="arrow" onClick={()=>addItem(cartItem)}>&#10095;</div>
-            </span>
-        <span className="price">{price}</span>
-        <div className="remove-button" onClick={() => clearItem(cartItem)}>&#10005;</div>
-    </div>
-    )};
+    <CheckoutItemContainer>
+        <ImageContainer>
+            <CheckoutImage src={imageUrl} alt="item"/>
+        </ImageContainer>
+        <TextContainer>{name}</TextContainer>
+        <QunatityContainer>
+            <div onClick={()=> removeItem(cartItem)}>&#10094;</div>
+            <span>{quantity}</span>
+            <div onClick={()=>addItem(cartItem)}>&#10095;</div>
+        </QunatityContainer>
+        <TextContainer>{price}</TextContainer>
+        <RemoveButtonContainer onClick={() => clearItem(cartItem)}>&#10005;</RemoveButtonContainer>
+    </CheckoutItemContainer>
+    )
+};
+
+// Redux Functions
 const mapDispatchToProp = dispatch => ({
     clearItem: item => dispatch(clearItemFromCart(item)),
     addItem: item => dispatch(addItem(item)),
     removeItem: item => dispatch(removeItem(item))
-})
+});
+
 export default connect(null, mapDispatchToProp)(CheckoutItem);

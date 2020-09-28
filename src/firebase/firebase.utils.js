@@ -3,7 +3,6 @@ import 'firebase/firestore'; /* This is import for the data base option */
 import 'firebase/auth'; /* This is import for the auth option */
 
 /* This is file for initilize and working with firebase */
-
 const config = {
     apiKey: "AIzaSyAUTuWqDicEsN-EEdw5Km4IBCedPZf6-S0",
     authDomain: "crwn-db-cc3c1.firebaseapp.com",
@@ -15,7 +14,7 @@ const config = {
     measurementId: "G-XGVPP8SE1Y"
 };
 
-/* FUnction that save the user sign in from google to our database */
+/* Function that save the user sign in from google to our database */
 export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return;
     const userRef = firestore.doc(`users/${userAuth.uid}`);
@@ -36,7 +35,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         }
     }
     return userRef;
-}
+};
 
 firebase.initializeApp(config);
 
