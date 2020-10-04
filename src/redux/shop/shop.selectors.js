@@ -11,10 +11,10 @@ export const selectShopCollections = createSelector(
 /* fixed the problem that we do map on object so it is transform object to array */
 export const selectShopColllectionForPreview = createSelector(
     [selectShopCollections],
-    collections => Object.keys(collections).map(key => collections[key])
+    collections => collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 
 export const selectCollection = collectionUrlParam => createSelector(
     [selectShopCollections],
-    collections => collections[collectionUrlParam]
+    collections => (collections ? collections[collectionUrlParam] : null)
 );

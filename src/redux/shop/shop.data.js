@@ -58,6 +58,24 @@ const SHOP_DATA = {
         name: 'Blue Snapback',
         imageUrl: 'https://i.ibb.co/X2VJP2W/blue-snapback.png',
         price: 16
+      },
+      {
+        id: 10,
+        name: 'Red Hat',
+        imageUrl: 'https://i.ibb.co/48MWYfp/red-hat.jpg',
+        price: 30
+      },
+      {
+        id: 11,
+        name: 'Flower Hat',
+        imageUrl: 'https://i.ibb.co/74VcSsm/flower-hat.jpg',
+        price: 17
+      },
+      {
+        id: 12,
+        name: 'Sumbraro Hat',
+        imageUrl: 'https://i.ibb.co/DMGtxC3/sumbraro-hat.jpg',
+        price: 10
       }
     ]
   },

@@ -37,6 +37,35 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 };
 
+/* Fuction to add our shop data to firebase */
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey);
+
+    const batch = firestore.batch();// This is to make sure that all the calls will called even if the internet crash
+    objectsToAdd.forEach(obj => {
+        const newDocRef = collectionRef.doc();
+        batch.set(newDocRef, obj);   
+    });
+    return await batch.commit();
+};
+
+/* Function that gets colletion reference and return actul collection */
+export const convertCollectionsSnapshotsToMap = (collections) => {
+    const transformedCollection = collections.docs.map(doc => {
+        const { title, items } = doc.data();
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            items
+        }
+    });
+    return transformedCollection.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {});
+};
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
