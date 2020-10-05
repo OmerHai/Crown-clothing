@@ -18,3 +18,14 @@ export const selectCollection = collectionUrlParam => createSelector(
     [selectShopCollections],
     collections => (collections ? collections[collectionUrlParam] : null)
 );
+
+export const selectIsColelctionFetching = createSelector(
+    [selectShop],
+    shop => shop.isFetching
+);
+
+/* Function that fix the bag of null when we refresh the collection page */
+export const selectIsCollectionsLoaded = createSelector(
+    [selectShop],
+    shop => !!shop.collections
+);
