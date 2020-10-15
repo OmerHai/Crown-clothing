@@ -3,8 +3,13 @@
  Website for buying clothes from in different categories, built with React, Redux, JavaScript, SASS and Firebase.
  
  ## Project Screen Shots
+ ### Shop Screen Shot
  ![Shop](https://i.ibb.co/LSTNW8H/shop.jpg)
+ 
+ ### Cart Screen Shot
  ![Shop](https://i.ibb.co/VgwCsR1/Cart.jpg)
+ 
+ ### Pay Screen Shot
  ![Shop](https://i.ibb.co/2trsnQ6/strip.jpg)
  
  ## Installation and Setup Instructions
