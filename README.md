@@ -4,7 +4,7 @@
  
  ## Project Screen Shots
  ### Shop Screen Shot
- ![Shop](https://i.ibb.co/LSTNW8H/shop.jpg)
+ ![Shop](https://i.ibb.co/nPvkyL0/shop.jpg)
  
  ### Cart Screen Shot
  ![Shop](https://i.ibb.co/VgwCsR1/Cart.jpg)
