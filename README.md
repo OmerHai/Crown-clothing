@@ -1,14 +1,14 @@
-##Crown-clothing
+# Crown-clothing
 
  Website for buying clothes from in different categories, built with React, Redux, JavaScript, SASS and Firebase.
  
- ##Project Screen Shots
+ ## Project Screen Shots
  //Shop
  //hats category
  //Open cart
  //Stripe
  
- ##Installation and Setup Instructions
+ ## Installation and Setup Instructions
 Clone down this repository. You will need node and npm installed globally on your machine.
 
 Installation:
@@ -23,7 +23,7 @@ To Visit App:
 
 https://omer-shop-crwn-live.herokuapp.com/
 
-##Reflection
+## Reflection
 This is a graduation project that concludes the course "Complete React developer", the goal of the project was to realize and deeply understand React, Redux, React Router and React Design Patterns.
 
 Originally I wanted to build an application that allowed users to buy cloths in different categories , such as hats. I started this process by using the create-react-app boilerplate, then adding react-route and redux.
