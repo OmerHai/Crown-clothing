@@ -4,9 +4,8 @@
  
  ## Project Screen Shots
  ![Shop](https://i.ibb.co/LSTNW8H/shop.jpg)
- //hats category
- //Open cart
- //Stripe
+ ![Shop](https://i.ibb.co/VgwCsR1/Cart.jpg)
+ ![Shop](https://i.ibb.co/2trsnQ6/strip.jpg)
  
  ## Installation and Setup Instructions
 Clone down this repository. You will need node and npm installed globally on your machine.
