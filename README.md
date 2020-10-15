@@ -1,4 +1,4 @@
-# Crown-clothing
+# Crown-Clothing
 
  Website for buying clothes from in different categories, built with React, Redux, JavaScript, SASS and Firebase.
  
